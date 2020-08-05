@@ -1,3 +1,4 @@
+
 <?php
 header('Content-Type: application/json');
 
@@ -18,7 +19,7 @@ function writeToDB($filename)
    curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
    $apiResponse = curl_exec($cURLConnection);
    curl_close($cURLConnection);
-} 
+}
 
 if (empty($_GET['filename']) || !preg_match('/^[a-z0-9_]+\.jpg$/', $_GET['filename'])) {
     die(json_encode([
@@ -147,7 +148,6 @@ $printimage = shell_exec(
     )
 );
 
-//Statistik
 writeToDB($filename);
 
 die(json_encode([
