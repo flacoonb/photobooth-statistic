@@ -8,7 +8,7 @@ function writeToDB($file)
 {
    # POST TO DB
    $postRequest = array(
-       'api_key' => 'API_KEY',
+       'api_key' => 'API_Key',
        'sensor' => 'photo',
        'photoName' => $file
    );
@@ -18,7 +18,6 @@ function writeToDB($file)
    $apiResponse = curl_exec($cURLConnection);
    curl_close($cURLConnection);
 }
-
 
 function takePicture($filename)
 {
@@ -119,8 +118,7 @@ if ($_POST['style'] === 'photo') {
     $filename = $basename . '-' . $number . '.jpg';
 
     takePicture($filename);
-    
-//Statistik
+
     if ($number == 3) {
        writeToDB($file);
     }
@@ -137,7 +135,6 @@ if ($_POST['style'] === 'photo') {
     ]));
 }
 
-//Statistik
 writeToDB($file);
 
 // send imagename to frontend
